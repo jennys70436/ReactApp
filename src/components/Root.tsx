@@ -1,15 +1,16 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
-import Login from './Login/Main'
+import { HashRouter, Switch, Redirect } from 'react-router-dom'
+import { routes } from '../routes'
+import _ from 'lodash'
 
 const Root = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Switch>
-        <Route path='/login' component={Login}/>
-        <Redirect to='/login' />
+        {routes}
+        <Redirect to='/login'/>
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
