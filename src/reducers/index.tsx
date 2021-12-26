@@ -1,26 +1,10 @@
-import * as ACTION_TYPES from '../actionTypes'
+import { combineReducers } from 'redux'
+import login from '../components/Login/reducer'
+import page1 from '../components/Page1/reducer'
 
-const initState = {
-  page: 'home',
-  work: false,
-  todo: ''
-}
-
-const reactApp = (state = initState, action) => {
-  switch (action.type) {
-    case ACTION_TYPES.INIT:
-      return {
-        ...state,
-        page: 'test'
-      }
-    case ACTION_TYPES.ADD_TODO:
-      return {
-        ...state,
-        todo: action.payload.todo
-      }
-    default:
-      return state
-  }
-}
+const reactApp = combineReducers({
+  login,
+  page1
+})
 
 export default reactApp
