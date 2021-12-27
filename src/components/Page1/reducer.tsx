@@ -6,7 +6,7 @@ const initialState = {
 
 function page1 (state = initialState, action) {
   switch (action.type) {
-    case ACTION_TYPES.INIT:
+    case ACTION_TYPES.INIT1:
       return {
         ...state,
         login: true
