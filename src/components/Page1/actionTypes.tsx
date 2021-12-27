@@ -1,1 +1,1 @@
-export const INIT = 'INIT'
+export const INIT1 = 'INIT1'
