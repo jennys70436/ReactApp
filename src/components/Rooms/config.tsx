@@ -1,6 +1,8 @@
 import Main from './components/Main'
 
 export const route = {
-  path: '/page1',
+  path: '/rooms',
   component: Main
 }
+
+export const moduleName = 'Rooms'
