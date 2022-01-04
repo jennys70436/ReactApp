@@ -1,15 +1,17 @@
 import React from 'react'
 import { HashRouter, Switch, Redirect } from 'react-router-dom'
 import { routes } from '../routes'
-import _ from 'lodash'
+import Nav from './Nav/Main'
 
 const Root = () => {
   return (
     <HashRouter>
-      <Switch>
-        {routes}
-        <Redirect to='/login'/>
-      </Switch>
+      <Nav>
+        <Switch>
+          {routes}
+          <Redirect to='/homePage'/>
+        </Switch>
+      </Nav>
     </HashRouter>
   )
 }

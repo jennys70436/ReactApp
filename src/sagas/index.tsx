@@ -1,10 +1,10 @@
 import { all } from 'redux-saga/effects'
-import loginSaga from '../components/Login/saga'
-import page1Saga from '../components/Page1/saga'
+import homePageSaga from '../components/HomePage/saga'
+import roomsSaga from '../components/Rooms/saga'
 
 export default function * rootSaga () {
   yield all([
-    loginSaga(),
-    page1Saga()
+    homePageSaga(),
+    roomsSaga()
   ])
 }
