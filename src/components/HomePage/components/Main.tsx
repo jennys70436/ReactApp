@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { init } from '../actions'
+import TitleBar from '../../PageLayout/TitleBar'
+import { moduleName } from '../config'
 
 const Main = () => {
   const dispatch = useDispatch()
   useEffect(() => dispatch(init()))
   return (
     <>
+      <TitleBar moduleName={moduleName}/>
       <section className='ftco-section ftc-no-pb ftc-no-pt'>
         <div className='container'>
           <div className='row'>
