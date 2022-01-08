@@ -1,17 +1,17 @@
 import React from 'react'
 import { HashRouter, Switch, Redirect } from 'react-router-dom'
 import { routes } from '../routes'
-import Nav from './Nav/Main'
+import PageLayout from './PageLayout/Main'
 
 const Root = () => {
   return (
     <HashRouter>
-      <Nav>
+      <PageLayout>
         <Switch>
           {routes}
           <Redirect to='/homePage'/>
         </Switch>
-      </Nav>
+      </PageLayout>
     </HashRouter>
   )
 }
