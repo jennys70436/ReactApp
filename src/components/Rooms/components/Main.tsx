@@ -3,12 +3,13 @@ import { useDispatch } from 'react-redux'
 import { init } from '../actions'
 import TitleBar from '../../PageLayout/TitleBar'
 import { moduleName } from '../config'
+import RoomCard from './RoomCard'
 
 const Main = () => {
   const dispatch = useDispatch()
   useEffect(() => dispatch(init()))
   return (
-    <>
+    <div id={moduleName}>
       <TitleBar moduleName={moduleName}/>
       <section className='ftco-section bg-light'>
         <div className='container'>
@@ -141,6 +142,7 @@ const Main = () => {
                     </div>
                   </div>
                 </div>
+                <RoomCard />
               </div>
             </div>
             <div className='col-lg-3 sidebar'>
@@ -251,7 +253,7 @@ const Main = () => {
           </div>
         </div >
       </section >
-    </>
+    </div>
   )
 }
 
