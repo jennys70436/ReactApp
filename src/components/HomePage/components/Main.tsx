@@ -8,7 +8,7 @@ const Main = () => {
   const dispatch = useDispatch()
   useEffect(() => dispatch(init()))
   return (
-    <>
+    <div id={moduleName}>
       <TitleBar moduleName={moduleName}/>
       <section className='ftco-section ftc-no-pb ftc-no-pt'>
         <div className='container'>
@@ -29,7 +29,7 @@ const Main = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   )
 }
 
