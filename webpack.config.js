@@ -1,7 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = (env, argv) => {
@@ -11,6 +10,7 @@ module.exports = (env, argv) => {
     entry: ['@babel/polyfill', './src/index.tsx'],
     output: {
       path: path.join(__dirname, outputFolder),
+      assetModuleFilename: 'images/[hash][ext][query]',
       filename: 'scripts/bundle.[chunkhash].js',
       clean: true
     },
@@ -40,17 +40,23 @@ module.exports = (env, argv) => {
             'postcss-loader',
             'sass-loader'
           ]
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource'
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
+          type: 'asset/resource',
+          generator: {
+            filename: 'fonts/[hash][ext][query]'
+          }
         }
       ]
     },
     plugins: [
       new HtmlWebpackPlugin({
         template: './src/index.html'
-      }),
-      new CopyPlugin({
-        patterns: [
-          { from: 'src/images', to: 'images' }
-        ]
       }),
       new MiniCssExtractPlugin({
         filename: isProdMode ? 'styles/[name].css' : 'styles/[name].[hash].css'
