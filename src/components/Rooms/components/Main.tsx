@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { init } from '../actions'
+import React from 'react'
+import { useMain } from '../hook/main'
 import TitleBar from '../../PageLayout/TitleBar'
 import { moduleName } from '../config'
 import RoomCard from './RoomCard'
+import _ from 'lodash'
 
 const Main = () => {
-  const dispatch = useDispatch()
-  useEffect(() => dispatch(init()))
+  const { roomList } = useMain()
   return (
     <div id={moduleName}>
       <TitleBar moduleName={moduleName}/>
@@ -16,133 +15,9 @@ const Main = () => {
           <div className='row'>
             <div className='col-lg-9'>
               <div className='row'>
-                <div className='col-sm col-md-6 col-lg-4'>
-                  <div className='room'>
-                    {/* <a href='rooms-single.html' className='img d-flex justify-content-center align-items-center' style='background-image: url(images/room-1.jpg);'>
-                      <div className='icon d-flex justify-content-center align-items-center'>
-                        <span className='icon-search2'></span>
-                      </div>
-                    </a> */}
-                    <div className='text p-3 text-center'>
-                      <h3 className='mb-3'><a href='rooms-single.html'>Suite Room</a></h3>
-                      <p><span className='price mr-2'>$120.00</span> <span className='per'>per night</span></p>
-                      <ul className='list'>
-                        <li><span>Max:</span> 3 Persons</li>
-                        <li><span>Size:</span> 45 m2</li>
-                        <li><span>View:</span> Sea View</li>
-                        <li><span>Bed:</span> 1</li>
-                      </ul>
-                      <hr />
-                        <p className='pt-1'><a href='room-single.html' className='btn-custom'>Book Now <span className='icon-long-arrow-right'></span></a></p>
-                    </div>
-                  </div>
-                </div>
-                <div className='col-sm col-md-6 col-lg-4'>
-                  <div className='room'>
-                    {/* <a href='rooms-single.html' className='img d-flex justify-content-center align-items-center' style='background-image: url(images/room-2.jpg);'>
-                      <div className='icon d-flex justify-content-center align-items-center'>
-                        <span className='icon-search2'></span>
-                      </div>
-                    </a> */}
-                    <div className='text p-3 text-center'>
-                      <h3 className='mb-3'><a href='rooms-single.html'>Family Room</a></h3>
-                      <p><span className='price mr-2'>$20.00</span> <span className='per'>per night</span></p>
-                      <ul className='list'>
-                        <li><span>Max:</span> 3 Persons</li>
-                        <li><span>Size:</span> 45 m2</li>
-                        <li><span>View:</span> Sea View</li>
-                        <li><span>Bed:</span> 1</li>
-                      </ul>
-                      <hr />
-                        <p className='pt-1'><a href='room-single.html' className='btn-custom'>Book Now <span className='icon-long-arrow-right'></span></a></p>
-                    </div>
-                  </div>
-                </div>
-                <div className='col-sm col-md-6 col-lg-4'>
-                  <div className='room'>
-                    {/* <a href='rooms-single.html' className='img d-flex justify-content-center align-items-center' style='background-image: url(images/room-3.jpg);'>
-                      <div className='icon d-flex justify-content-center align-items-center'>
-                        <span className='icon-search2'></span>
-                      </div>
-                    </a> */}
-                    <div className='text p-3 text-center'>
-                      <h3 className='mb-3'><a href='rooms-single.html'>Deluxe Room</a></h3>
-                      <p><span className='price mr-2'>$150.00</span> <span className='per'>per night</span></p>
-                      <ul className='list'>
-                        <li><span>Max:</span> 5 Persons</li>
-                        <li><span>Size:</span> 45 m2</li>
-                        <li><span>View:</span> Sea View</li>
-                        <li><span>Bed:</span> 2</li>
-                      </ul>
-                      <hr />
-                        <p className='pt-1'><a href='room-single.html' className='btn-custom'>Book Now <span className='icon-long-arrow-right'></span></a></p>
-                    </div>
-                  </div>
-                </div>
-                <div className='col-sm col-md-6 col-lg-4'>
-                  <div className='room'>
-                    {/* <a href='rooms-single.html' className='img d-flex justify-content-center align-items-center' style='background-image: url(images/room-4.jpg);'>
-                      <div className='icon d-flex justify-content-center align-items-center'>
-                        <span className='icon-search2'></span>
-                      </div>
-                    </a> */}
-                    <div className='text p-3 text-center'>
-                      <h3 className='mb-3'><a href='rooms-single.html'>Classic Room</a></h3>
-                      <p><span className='price mr-2'>$130.00</span> <span className='per'>per night</span></p>
-                      <ul className='list'>
-                        <li><span>Max:</span> 5 Persons</li>
-                        <li><span>Size:</span> 45 m2</li>
-                        <li><span>View:</span> Sea View</li>
-                        <li><span>Bed:</span> 2</li>
-                      </ul>
-                      <hr />
-                        <p className='pt-1'><a href='room-single.html' className='btn-custom'>Book Now <span className='icon-long-arrow-right'></span></a></p>
-                    </div>
-                  </div>
-                </div>
-                <div className='col-sm col-md-6 col-lg-4'>
-                  <div className='room'>
-                    {/* <a href='rooms-single.html' className='img d-flex justify-content-center align-items-center' style='background-image: url(images/room-5.jpg);'>
-                      <div className='icon d-flex justify-content-center align-items-center'>
-                        <span className='icon-search2'></span>
-                      </div>
-                    </a> */}
-                    <div className='text p-3 text-center'>
-                      <h3 className='mb-3'><a href='rooms-single.html'>Superior Room</a></h3>
-                      <p><span className='price mr-2'>$300.00</span> <span className='per'>per night</span></p>
-                      <ul className='list'>
-                        <li><span>Max:</span> 6 Persons</li>
-                        <li><span>Size:</span> 45 m2</li>
-                        <li><span>View:</span> Sea View</li>
-                        <li><span>Bed:</span> 3</li>
-                      </ul>
-                      <hr />
-                        <p className='pt-1'><a href='room-single.html' className='btn-custom'>Book Now <span className='icon-long-arrow-right'></span></a></p>
-                    </div>
-                  </div>
-                </div>
-                <div className='col-sm col-md-6 col-lg-4'>
-                  <div className='room'>
-                    {/* <a href='rooms-single.html' className='img d-flex justify-content-center align-items-center' style='background-image: url(images/room-6.jpg);'>
-                      <div className='icon d-flex justify-content-center align-items-center'>
-                        <span className='icon-search2'></span>
-                      </div>
-                    </a> */}
-                    <div className='text p-3 text-center'>
-                      <h3 className='mb-3'><a href='rooms-single.html'>Luxury Room</a></h3>
-                      <p><span className='price mr-2'>$500.00</span> <span className='per'>per night</span></p>
-                      <ul className='list'>
-                        <li><span>Max:</span> 5 Persons</li>
-                        <li><span>Size:</span> 45 m2</li>
-                        <li><span>View:</span> Sea View</li>
-                        <li><span>Bed:</span> 2</li>
-                      </ul>
-                      <hr />
-                        <p className='pt-1'><a href='room-single.html' className='btn-custom'>Book Now <span className='icon-long-arrow-right'></span></a></p>
-                    </div>
-                  </div>
-                </div>
-                <RoomCard />
+                {
+                  _.map(roomList, room => <RoomCard data={room} key={room.id} />)
+                }
               </div>
             </div>
             <div className='col-lg-3 sidebar'>

@@ -1,1 +1,3 @@
-export const INIT1 = 'INIT1'
+export const GET_ROOMS = 'GET_ROOMS'
+
+export const SET_ROOMS = 'SET_ROOMS'

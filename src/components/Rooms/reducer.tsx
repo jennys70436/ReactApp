@@ -1,15 +1,15 @@
 import * as ACTION_TYPES from './actionTypes'
 
 const initialState = {
-  login: false
+  roomList: []
 }
 
 function page1 (state = initialState, action) {
   switch (action.type) {
-    case ACTION_TYPES.INIT1:
+    case ACTION_TYPES.SET_ROOMS:
       return {
         ...state,
-        login: true
+        roomList: action.payload.rooms
       }
     default:
       return state
