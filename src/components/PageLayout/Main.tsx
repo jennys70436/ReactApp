@@ -13,11 +13,7 @@ const Main = (props) => {
           <div className='collapse navbar-collapse' id='ftco-nav'>
             <ul className='navbar-nav ml-auto'>
               <li className='nav-item'><NavLink className='nav-link' activeClassName='active' to='/homePage'>Home</NavLink></li>
-              <li className='nav-item'><NavLink className='nav-link' activeClassName='active' to='/rooms'>Rooms</NavLink></li>
-              <li className='nav-item active'><a href='index.html' className='nav-link'>Home</a></li>
-              <li className='nav-item'><a href='about.html' className='nav-link'>About</a></li>
-              <li className='nav-item'><a href='blog.html' className='nav-link'>Blog</a></li>
-              <li className='nav-item'><a href='contact.html' className='nav-link'>Contact</a></li>
+              <li className='nav-item'><NavLink className='nav-link' activeClassName='active' to='/rooms/list'>Rooms</NavLink></li>
             </ul>
           </div>
         </div>
