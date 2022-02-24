@@ -11,7 +11,7 @@ export interface Room {
   size: string
 }
 
-interface RoomsState {
+export interface RoomsState {
   roomList: Room[]
 }
 
@@ -19,7 +19,7 @@ const initialState: RoomsState = {
   roomList: []
 }
 
-function rooms (state = initialState, action: AnyAction) {
+function rooms (state = initialState, action: AnyAction): RoomsState {
   switch (action.type) {
     case ACTION_TYPES.SET_ROOMS:
       return {

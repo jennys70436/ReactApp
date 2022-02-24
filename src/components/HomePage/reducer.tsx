@@ -1,7 +1,7 @@
 import * as ACTION_TYPES from './actionTypes'
 import { AnyAction } from 'redux'
 
-interface HomePageState {
+export interface HomePageState {
   login: boolean
 }
 
