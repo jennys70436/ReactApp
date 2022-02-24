@@ -1,10 +1,15 @@
 import * as ACTION_TYPES from './actionTypes'
+import { AnyAction } from 'redux'
 
-const initialState = {
+interface HomePageState {
+  login: boolean
+}
+
+const initialState: HomePageState = {
   login: false
 }
 
-function login (state = initialState, action) {
+function homePage (state = initialState, action: AnyAction): HomePageState {
   switch (action.type) {
     case ACTION_TYPES.INIT:
       return {
@@ -16,4 +21,4 @@ function login (state = initialState, action) {
   }
 }
 
-export default login
+export default homePage

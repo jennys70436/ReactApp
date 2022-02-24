@@ -1,10 +1,25 @@
 import * as ACTION_TYPES from './actionTypes'
+import { AnyAction } from 'redux'
 
-const initialState = {
+export interface Room {
+  bed: string
+  cardImg: string
+  detailImg: string
+  id: string
+  name: string
+  price: string
+  size: string
+}
+
+interface RoomsState {
+  roomList: Room[]
+}
+
+const initialState: RoomsState = {
   roomList: []
 }
 
-function page1 (state = initialState, action) {
+function rooms (state = initialState, action: AnyAction) {
   switch (action.type) {
     case ACTION_TYPES.SET_ROOMS:
       return {
@@ -16,4 +31,4 @@ function page1 (state = initialState, action) {
   }
 }
 
-export default page1
+export default rooms
