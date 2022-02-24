@@ -1,9 +1,15 @@
 import { call, put, takeEvery, all } from 'redux-saga/effects'
 import * as actions from './actions'
 import * as ACTION_TYPES from './actionTypes'
+import roomJson from '../../data/rooms.json'
 
 export default function * saga () {
   yield takeEvery(ACTION_TYPES.GET_ROOMS, getRooms)
+}
+
+const url = {
+  static: roomJson,
+  SQL: 'http://localhost:8080/api/room'
 }
 
 /**
@@ -11,7 +17,7 @@ export default function * saga () {
  */
 function * getRooms () {
   try {
-    const data = yield call(() => fetch('http://localhost:8080/api/room', {
+    const data = yield call(() => fetch(url[API_SOURCE], {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json'
