@@ -53,7 +53,7 @@
     "webpack-dev-server": "^4.6.0"
   },
   "scripts": {
-    "start": "webpack serve --mode=development --open",
+    "start": "webpack serve --mode=development --env apiSource=static --open",
     "build": "webpack --mode=production",
     "devBuild": "webpack --mode=development",
     "lint": "eslint --ext .jsx,.js,.ts,.tsx src/"

@@ -51,6 +51,13 @@ module.exports = (env, argv) => {
           generator: {
             filename: 'fonts/[hash][ext][query]'
           }
+        },
+        {
+          test: /\.(json)$/i,
+          type: 'asset/resource',
+          generator: {
+            filename: 'data/[hash][ext][query]'
+          }
         }
       ]
     },
@@ -62,7 +69,7 @@ module.exports = (env, argv) => {
         filename: isProdMode ? 'styles/[name].css' : 'styles/[name].[hash].css'
       }),
       new webpack.DefinePlugin({
-        'process.env.MODE': JSON.stringify(argv.mode)
+        API_SOURCE: JSON.stringify(env.apiSource)
       })
     ],
     devServer: {
