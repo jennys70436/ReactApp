@@ -54,7 +54,7 @@
   },
   "scripts": {
     "start": "webpack serve --mode=development --env apiSource=static --open",
-    "build": "webpack --mode=production",
+    "build": "webpack --mode=production --env apiSource=static",
     "devBuild": "webpack --mode=development",
     "lint": "eslint --ext .jsx,.js,.ts,.tsx src/"
   }

@@ -1,0 +1,56 @@
+[
+    {
+        "id": "001",
+        "name": "雙人房",
+        "size": "2",
+        "price": "1800",
+        "cardImg": "classic",
+        "detailImg": "room1",
+        "bed": "1"
+    },
+    {
+        "id": "002",
+        "name": "豪華雙人房",
+        "size": "2",
+        "price": "2500",
+        "cardImg": "deluxe",
+        "detailImg": "room2",
+        "bed": "2"
+    },
+    {
+        "id": "003",
+        "name": "四人房",
+        "size": "4",
+        "price": "3000",
+        "cardImg": "family",
+        "detailImg": "room3",
+        "bed": "2"
+    },
+    {
+        "id": "004",
+        "name": "海景四人房",
+        "size": "4",
+        "price": "3500",
+        "cardImg": "suite",
+        "detailImg": "room4",
+        "bed": "2"
+    },
+    {
+        "id": "005",
+        "name": "豪華四人房",
+        "size": "4",
+        "price": "4000",
+        "cardImg": "luxury",
+        "detailImg": "room5",
+        "bed": "3"
+    },
+    {
+        "id": "006",
+        "name": "六人房",
+        "size": "6",
+        "price": "5000",
+        "cardImg": "superior",
+        "detailImg": "room6",
+        "bed": "6"
+    }
+]
