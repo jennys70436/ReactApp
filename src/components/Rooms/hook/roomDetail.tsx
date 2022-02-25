@@ -1,17 +1,17 @@
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { getRooms } from '../actions'
+import { useSelector } from 'react-redux'
+import { Room } from '../reducer'
+import { ReactAppState } from '../../../reducers'
 import _ from 'lodash'
 
-export function useRoomDetail (id) {
-  const dispatch = useDispatch()
-  const state = useSelector(state => state)
-  const actionCreaters = bindActionCreators({ getRooms }, dispatch)
+export function useRoomDetail (id: string):{
+  roomData: Room
+} {
+  const state = useSelector((state: ReactAppState) => state)
 
   const roomList = state.rooms.roomList
-  const roomData = _.find(roomList, { id }) || {}
-  
+  const roomData = _.find(roomList, { id }) as Room
+
   useEffect(() => {
 
   }, [])

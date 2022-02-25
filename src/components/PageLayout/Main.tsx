@@ -1,7 +1,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const Main = (props) => {
+interface MainProps {
+  children: React.ReactNode
+}
+
+const Main = (props: MainProps) => {
   return (
     <>
       <nav className='navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light' id='ftco-navbar'>

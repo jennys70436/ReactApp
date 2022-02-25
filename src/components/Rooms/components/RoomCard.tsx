@@ -1,8 +1,13 @@
 import React from 'react'
 import { route } from '../config'
 import { Link } from 'react-router-dom'
+import { Room } from '../reducer'
 
-const RoomCard = (props) => {
+interface RoomCardProps {
+  data: Room
+}
+
+const RoomCard = (props: RoomCardProps) => {
   return (
         <div className='col-sm col-md-6 col-lg-4'>
           <div className='room'>

@@ -1,6 +1,10 @@
 import React from 'react'
 
-const TitleBar = (props) => {
+interface TitleBarProps {
+  moduleName: string
+}
+
+const TitleBar = (props: TitleBarProps) => {
   return (
     <div className='hero-wrap bg1'>
         <div className='overlay'></div>

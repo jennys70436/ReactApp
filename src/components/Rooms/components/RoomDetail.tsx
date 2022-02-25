@@ -1,10 +1,13 @@
 import React from 'react'
 import { useRoomDetail } from '../hook/roomDetail'
 
-const RoomDetail = (props) => {
+interface RoomDetailProps {
+  match: { params: { id: string } }
+}
+
+const RoomDetail = (props: RoomDetailProps) => {
   const { id } = props.match.params
   const { roomData } = useRoomDetail(id)
-  console.log(roomData)
   return (
     <section className='ftco-section'>
       <div className='container'>
