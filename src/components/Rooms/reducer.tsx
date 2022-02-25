@@ -13,10 +13,12 @@ export interface Room {
 
 export interface RoomsState {
   roomList: Room[]
+  category: string
 }
 
 const initialState: RoomsState = {
-  roomList: []
+  roomList: [],
+  category: 'all'
 }
 
 function rooms (state = initialState, action: AnyAction): RoomsState {
@@ -25,6 +27,11 @@ function rooms (state = initialState, action: AnyAction): RoomsState {
       return {
         ...state,
         roomList: action.payload.rooms
+      }
+    case ACTION_TYPES.SET_CATEGORY:
+      return {
+        ...state,
+        category: action.payload.category
       }
     default:
       return state

@@ -4,7 +4,7 @@ import RoomCard from './RoomCard'
 import _ from 'lodash'
 
 const RoomList = () => {
-  const { roomList } = useRoomList()
+  const { filterRoomList, setCategory } = useRoomList()
   return (
     <section className='ftco-section bg-light'>
       <div className='container'>
@@ -12,12 +12,12 @@ const RoomList = () => {
           <div className='col-lg-9'>
             <div className='row'>
               {
-                _.map(roomList, room => <RoomCard data={room} key={room.id} />)
+                _.map(filterRoomList, room => <RoomCard data={room} key={room.id} />)
               }
             </div>
           </div>
           <div className='col-lg-3 sidebar'>
-            <div className='sidebar-wrap bg-light'>
+            {/* <div className='sidebar-wrap bg-light'>
               <h3 className='heading mb-4'>Advanced Search</h3>
               <form action='#'>
                 <div className='fields'>
@@ -84,14 +84,14 @@ const RoomList = () => {
                   <input type='submit' value='Search' className='btn btn-primary py-3 px-5' />
                 </div>
               </form>
-            </div>
+            </div> */}
             <div className='sidebar-wrap bg-light'>
               <div className='categories'>
                 <h3>Categories</h3>
-                <li>所有房型 <span>(12)</span></li>
-                <li>雙人房 <span>(22)</span></li>
-                <li>四人房 <span>(37)</span></li>
-                <li>六人房 <span>(42)</span></li>
+                <li onClick={() => setCategory('all')}>所有房型 <span>(12)</span></li>
+                <li onClick={() => setCategory('2')}>雙人房 <span>(22)</span></li>
+                <li onClick={() => setCategory('4')}>四人房 <span>(37)</span></li>
+                <li onClick={() => setCategory('6')}>六人房 <span>(42)</span></li>
               </div>
             </div>
           </div>
