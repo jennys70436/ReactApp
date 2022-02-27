@@ -38,28 +38,6 @@ const Main = (props: MainProps) => {
               </div>
             </div>
             <div className='col-md'>
-              <div className='ftco-footer-widget mb-4 ml-md-5'>
-                <h2 className='ftco-heading-2'>Useful Links</h2>
-                <ul className='list-unstyled'>
-                  <li><a href='#' className='py-2 d-block'>Blog</a></li>
-                  <li><a href='#' className='py-2 d-block'>Rooms</a></li>
-                  <li><a href='#' className='py-2 d-block'>Amenities</a></li>
-                  <li><a href='#' className='py-2 d-block'>Gift Card</a></li>
-                </ul>
-              </div>
-            </div>
-            <div className='col-md'>
-              <div className='ftco-footer-widget mb-4'>
-                <h2 className='ftco-heading-2'>Privacy</h2>
-                <ul className='list-unstyled'>
-                  <li><a href='#' className='py-2 d-block'>Career</a></li>
-                  <li><a href='#' className='py-2 d-block'>About Us</a></li>
-                  <li><a href='#' className='py-2 d-block'>Contact Us</a></li>
-                  <li><a href='#' className='py-2 d-block'>Services</a></li>
-                </ul>
-              </div>
-            </div>
-            <div className='col-md'>
               <div className='ftco-footer-widget mb-4'>
                 <h2 className='ftco-heading-2'>Have a Questions?</h2>
                 <div className='block-23 mb-3'>

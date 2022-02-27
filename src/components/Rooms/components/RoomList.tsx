@@ -4,7 +4,7 @@ import RoomCard from './RoomCard'
 import _ from 'lodash'
 
 const RoomList = () => {
-  const { filterRoomList, setCategory } = useRoomList()
+  const { roomList, filterRoomList, setCategory } = useRoomList()
   return (
     <section className='ftco-section bg-light'>
       <div className='container'>
@@ -88,10 +88,10 @@ const RoomList = () => {
             <div className='sidebar-wrap bg-light'>
               <div className='categories'>
                 <h3>Categories</h3>
-                <li onClick={() => setCategory('all')}>所有房型 <span>(12)</span></li>
-                <li onClick={() => setCategory('2')}>雙人房 <span>(22)</span></li>
-                <li onClick={() => setCategory('4')}>四人房 <span>(37)</span></li>
-                <li onClick={() => setCategory('6')}>六人房 <span>(42)</span></li>
+                <li onClick={() => setCategory('all')}>所有房型 <span>({roomList.length})</span></li>
+                <li onClick={() => setCategory('2')}>雙人房 <span>({_.filter(roomList, { size: '2' }).length})</span></li>
+                <li onClick={() => setCategory('4')}>四人房 <span>({_.filter(roomList, { size: '4' }).length})</span></li>
+                <li onClick={() => setCategory('6')}>六人房 <span>({_.filter(roomList, { size: '6' }).length})</span></li>
               </div>
             </div>
           </div>
