@@ -80,33 +80,33 @@ const RoomDetail = (props: RoomDetailProps) => {
               <div className='block-21 mb-4 d-flex'>
                 <a className='blog-img mr-4 blog-img1'></a>
                 <div className='text'>
-                  <h3 className='heading'><a href='#'>Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <h3 className='heading'><a>Even the all-powerful Pointing has no control about the blind texts</a></h3>
                   <div className='meta'>
-                    <div><a href='#'><span className='icon-calendar'></span> July 12, 2018</a></div>
-                    <div><a href='#'><span className='icon-person'></span> Admin</a></div>
-                    <div><a href='#'><span className='icon-chat'></span> 19</a></div>
+                    <div><a><span className='icon-calendar'></span> July 12, 2018</a></div>
+                    <div><a><span className='icon-person'></span> Admin</a></div>
+                    <div><a><span className='icon-chat'></span> 19</a></div>
                   </div>
                 </div>
               </div>
               <div className='block-21 mb-4 d-flex'>
                 <a className='blog-img mr-4 blog-img2'></a>
                 <div className='text'>
-                  <h3 className='heading'><a href='#'>Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <h3 className='heading'><a>Even the all-powerful Pointing has no control about the blind texts</a></h3>
                   <div className='meta'>
-                    <div><a href='#'><span className='icon-calendar'></span> July 12, 2018</a></div>
-                    <div><a href='#'><span className='icon-person'></span> Admin</a></div>
-                    <div><a href='#'><span className='icon-chat'></span> 19</a></div>
+                    <div><a><span className='icon-calendar'></span> July 12, 2018</a></div>
+                    <div><a><span className='icon-person'></span> Admin</a></div>
+                    <div><a><span className='icon-chat'></span> 19</a></div>
                   </div>
                 </div>
               </div>
               <div className='block-21 mb-4 d-flex'>
                 <a className='blog-img mr-4 blog-img3'></a>
                 <div className='text'>
-                  <h3 className='heading'><a href='#'>Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <h3 className='heading'><a>Even the all-powerful Pointing has no control about the blind texts</a></h3>
                   <div className='meta'>
-                    <div><a href='#'><span className='icon-calendar'></span> July 12, 2018</a></div>
-                    <div><a href='#'><span className='icon-person'></span> Admin</a></div>
-                    <div><a href='#'><span className='icon-chat'></span> 19</a></div>
+                    <div><a><span className='icon-calendar'></span> July 12, 2018</a></div>
+                    <div><a><span className='icon-person'></span> Admin</a></div>
+                    <div><a><span className='icon-chat'></span> 19</a></div>
                   </div>
                 </div>
               </div>
@@ -114,14 +114,14 @@ const RoomDetail = (props: RoomDetailProps) => {
             <div className='sidebar-box'>
               <h3>Tag Cloud</h3>
               <div className='tagcloud'>
-                <a href='#' className='tag-cloud-link'>dish</a>
-                <a href='#' className='tag-cloud-link'>menu</a>
-                <a href='#' className='tag-cloud-link'>food</a>
-                <a href='#' className='tag-cloud-link'>sweet</a>
-                <a href='#' className='tag-cloud-link'>tasty</a>
-                <a href='#' className='tag-cloud-link'>delicious</a>
-                <a href='#' className='tag-cloud-link'>desserts</a>
-                <a href='#' className='tag-cloud-link'>drinks</a>
+                <a className='tag-cloud-link'>dish</a>
+                <a className='tag-cloud-link'>menu</a>
+                <a className='tag-cloud-link'>food</a>
+                <a className='tag-cloud-link'>sweet</a>
+                <a className='tag-cloud-link'>tasty</a>
+                <a className='tag-cloud-link'>delicious</a>
+                <a className='tag-cloud-link'>desserts</a>
+                <a className='tag-cloud-link'>drinks</a>
               </div>
             </div>
             <div className='sidebar-box'>

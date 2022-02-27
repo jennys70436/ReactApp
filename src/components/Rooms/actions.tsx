@@ -25,3 +25,18 @@ export function setRooms (rooms: Room[]) : SetRoomsAction {
     payload: { rooms }
   }
 }
+
+interface SetCategoryAction extends Action<string>{
+  payload: { category: string }
+}
+
+/**
+ *  設定 顯示分類
+ * @param rooms 房型清單
+ */
+export function setCategory (category: string) : SetCategoryAction {
+  return {
+    type: ACTION_TYPES.SET_CATEGORY,
+    payload: { category }
+  }
+}
