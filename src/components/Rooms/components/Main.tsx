@@ -1,5 +1,5 @@
 import React from 'react'
-import TitleBar from '../../PageLayout/TitleBar'
+import TitleBar from '../../Share/TitleBar/TitleBar'
 import { moduleName, route } from '../config'
 import { Route } from 'react-router-dom'
 import { useMain } from '../hook/main'

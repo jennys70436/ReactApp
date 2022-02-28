@@ -56,3 +56,12 @@ export function setDate (type: string, date: Date) : SetDateAction {
     payload: { type, date }
   }
 }
+
+/**
+ * 預定 房型
+ */
+export function book (): Action<string> {
+  return {
+    type: ACTION_TYPES.BOOK
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { init } from '../actions'
-import TitleBar from '../../PageLayout/TitleBar'
+import TitleBar from '../../Share/TitleBar/TitleBar'
 import { moduleName } from '../config'
 
 const Main = () => {
