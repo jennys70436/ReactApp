@@ -40,3 +40,19 @@ export function setCategory (category: string) : SetCategoryAction {
     payload: { category }
   }
 }
+
+interface SetDateAction extends Action<string>{
+  payload: { type: string, date: Date }
+}
+
+/**
+ *  設定 預定日期
+ * @param type startDate/endDate
+ * @param date 選取日期
+ */
+export function setDate (type: string, date: Date) : SetDateAction {
+  return {
+    type: ACTION_TYPES.SET_DATE,
+    payload: { type, date }
+  }
+}

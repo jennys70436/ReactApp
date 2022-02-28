@@ -1,5 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useRoomDetail } from '../hook/roomDetail'
+import RoomCard from './RoomCard'
+import _ from 'lodash'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 interface RoomDetailProps {
   match: { params: { id: string } }
@@ -7,7 +11,7 @@ interface RoomDetailProps {
 
 const RoomDetail = (props: RoomDetailProps) => {
   const { id } = props.match.params
-  const { roomData } = useRoomDetail(id)
+  const { startDate, endDate, roomData, sameSizeRooms, setDate } = useRoomDetail(id)
   return (
     <section className='ftco-section'>
       <div className='container'>
@@ -40,41 +44,42 @@ const RoomDetail = (props: RoomDetailProps) => {
                   <div className='col-md-12 room-single mb-5 mt-5'>
                       <h4 className='mb-4'>Available Room</h4>
                       <div className='row'>
-                          <div className='col-sm col-md-6'>
-                                    <div className='room'>
-                                        <a href='rooms.html' className='img img-2 d-flex justify-content-center align-items-center'>
-                                            <div className='icon d-flex justify-content-center align-items-center'>
-                                                <span className='icon-search2'></span>
-                                            </div>
-                                        </a>
-                                        <div className='text p-3 text-center'>
-                                            <h3 className='mb-3'><a href='rooms.html'>Suite Room</a></h3>
-                                            <p><span className='price mr-2'>$120.00</span> <span className='per'>per night</span></p>
-                                            <hr />
-                                            <p className='pt-1'><a href='room-single.html' className='btn-custom'>View Room Details <span className='icon-long-arrow-right'></span></a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='col-sm col-md-6'>
-                                    <div className='room'>
-                                        <a href='rooms.html' className='img img-2 d-flex justify-content-center align-items-center'>
-                                            <div className='icon d-flex justify-content-center align-items-center'>
-                                                <span className='icon-search2'></span>
-                                            </div>
-                                        </a>
-                                        <div className='text p-3 text-center'>
-                                            <h3 className='mb-3'><a href='rooms.html'>Family Room</a></h3>
-                                            <p><span className='price mr-2'>$20.00</span> <span className='per'>per night</span></p>
-                                            <hr />
-                                            <p className='pt-1'><a href='room-single.html' className='btn-custom'>View Room Details <span className='icon-long-arrow-right'></span></a></p>
-                                        </div>
-                                    </div>
-                                </div>
+                      {
+                        _.map(sameSizeRooms, room => <RoomCard data={room} key={room.id} />)
+                      }
                       </div>
                   </div>
               </div>
           </div>
           <div className='col-lg-4 sidebar'>
+          <div className='sidebar-wrap bg-light'>
+              <h3 className='heading mb-4'>Booking Time</h3>
+              <form action='#'>
+                <div className='fields'>
+                  <div className='form-group'>
+                    <DatePicker
+                      selected={startDate}
+                      onChange={(date:Date) => setDate('startDate', date)}
+                      className='form-control checkin_date'
+                      dateFormat="yyyy/MM/dd"
+                      placeholderText='Check In Date'
+                    />
+                  </div>
+                  <div className='form-group'>
+                    <DatePicker
+                      selected={endDate}
+                      onChange={(date:Date) => setDate('endDate', date)}
+                      className='form-control checkout_date'
+                      dateFormat="yyyy/MM/dd"
+                      placeholderText='Check Out Date'
+                    />
+                  </div>
+                  <div className='form-group'>
+                    <button className='btn btn-primary py-3 px-5'>Book</button>
+                  </div>
+                </div>
+              </form>
+            </div>
             <div className='sidebar-box'>
               <h3>Recent Blog</h3>
               <div className='block-21 mb-4 d-flex'>
