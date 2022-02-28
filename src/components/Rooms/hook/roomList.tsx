@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getRooms, setCategory } from '../actions'
@@ -7,6 +6,7 @@ import { ReactAppState } from '../../../reducers'
 import _ from 'lodash'
 
 export function useRoomList (): {
+  roomList: Room[]
   filterRoomList: Room[]
   category: string
   setCategory: (category: string) => void
@@ -21,11 +21,8 @@ export function useRoomList (): {
     ? roomList
     : _.filter(roomList, { size: category })
 
-  useEffect(() => {
-    actionCreaters.getRooms()
-  }, [])
-
   return {
+    roomList,
     filterRoomList,
     category,
     ...actionCreaters
