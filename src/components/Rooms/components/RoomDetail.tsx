@@ -11,7 +11,7 @@ interface RoomDetailProps {
 
 const RoomDetail = (props: RoomDetailProps) => {
   const { id } = props.match.params
-  const { startDate, endDate, roomData, sameSizeRooms, setDate } = useRoomDetail(id)
+  const { startDate, endDate, roomData, sameSizeRooms, setDate, book } = useRoomDetail(id)
   return (
     <section className='ftco-section'>
       <div className='container'>
@@ -54,7 +54,6 @@ const RoomDetail = (props: RoomDetailProps) => {
           <div className='col-lg-4 sidebar'>
           <div className='sidebar-wrap bg-light'>
               <h3 className='heading mb-4'>Booking Time</h3>
-              <form action='#'>
                 <div className='fields'>
                   <div className='form-group'>
                     <DatePicker
@@ -75,10 +74,9 @@ const RoomDetail = (props: RoomDetailProps) => {
                     />
                   </div>
                   <div className='form-group'>
-                    <button className='btn btn-primary py-3 px-5'>Book</button>
+                    <button className='btn btn-primary py-3 px-5' onClick={() => book()}>Book</button>
                   </div>
                 </div>
-              </form>
             </div>
             <div className='sidebar-box'>
               <h3>Recent Blog</h3>

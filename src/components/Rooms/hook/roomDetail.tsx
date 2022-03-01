@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { ReactAppState } from '../../../reducers'
-import { setDate } from '../actions'
+import { setDate, book } from '../actions'
 import _ from 'lodash'
 import { Room } from '../reducer'
 
@@ -11,10 +11,11 @@ export function useRoomDetail (id: string):{
   roomData: Room
   sameSizeRooms: Room[]
   setDate: (type: string, date: Date) => void
+  book: () => void
 } {
   const state = useSelector((state: ReactAppState) => state)
   const dispatch = useDispatch()
-  const actionCreaters = bindActionCreators({ setDate }, dispatch)
+  const actionCreaters = bindActionCreators({ setDate, book }, dispatch)
 
   const { roomList, startDate, endDate } = state.rooms
   const roomData = _.isEmpty(roomList)

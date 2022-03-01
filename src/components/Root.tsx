@@ -1,7 +1,8 @@
 import React from 'react'
 import { HashRouter, Switch, Redirect } from 'react-router-dom'
 import { routes } from '../routes'
-import PageLayout from './PageLayout/Main'
+import PageLayout from './Share/PageLayout/PageLayout'
+import Modal from './Share/MessageBox/MessageBox'
 
 const Root = () => {
   return (
@@ -12,6 +13,7 @@ const Root = () => {
           <Redirect to='/homePage'/>
         </Switch>
       </PageLayout>
+      <Modal/>
     </HashRouter>
   )
 }

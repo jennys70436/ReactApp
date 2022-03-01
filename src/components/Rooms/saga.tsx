@@ -1,10 +1,13 @@
-import { call, put, takeEvery, all } from 'redux-saga/effects'
+import { call, put, takeEvery, select } from 'redux-saga/effects'
 import * as actions from './actions'
 import * as ACTION_TYPES from './actionTypes'
 import roomJson from '../../data/rooms.json'
+import { ReactAppState } from '../../reducers'
+import { createMessageBox } from '../Share/MessageBox/saga'
 
 export default function * saga () {
   yield takeEvery(ACTION_TYPES.GET_ROOMS, getRooms)
+  yield takeEvery(ACTION_TYPES.BOOK, book)
 }
 
 const url = {
@@ -27,5 +30,17 @@ function * getRooms () {
     yield put(actions.setRooms(data))
   } catch (e) {
     console.log(`getRoomsinit fail: ${e}`)
+  }
+}
+
+/**
+ * 預定房型
+ */
+function * book () {
+  try {
+    const { startDate, endDate } = yield select((state: ReactAppState) => state.rooms)
+    const confirm: boolean = yield call(createMessageBox, { text: 'Are u sure?', title: 'TestTest', type: 'confirm' })
+  } catch (e) {
+    console.log(`book fail: ${e}`)
   }
 }
