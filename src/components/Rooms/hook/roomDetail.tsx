@@ -11,7 +11,7 @@ export function useRoomDetail (id: string):{
   roomData: Room
   sameSizeRooms: Room[]
   setDate: (type: string, date: Date) => void
-  book: () => void
+  book: (name: string) => void
 } {
   const state = useSelector((state: ReactAppState) => state)
   const dispatch = useDispatch()

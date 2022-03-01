@@ -57,11 +57,17 @@ export function setDate (type: string, date: Date) : SetDateAction {
   }
 }
 
+export interface BookAction extends Action<string>{
+  payload: { name: string }
+}
+
 /**
  * 預定 房型
+ * @param name 房型名稱
  */
-export function book (): Action<string> {
+export function book (name: string): BookAction {
   return {
-    type: ACTION_TYPES.BOOK
+    type: ACTION_TYPES.BOOK,
+    payload: { name }
   }
 }
