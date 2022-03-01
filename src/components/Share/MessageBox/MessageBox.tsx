@@ -1,5 +1,5 @@
 import React from 'react'
-import { sagaModal } from 'redux-saga-modal'
+import { sagaModal, ModalHelpers } from 'redux-saga-modal'
 import ReactModal from 'react-modal'
 
 const Modal = ({
@@ -18,26 +18,31 @@ const Modal = ({
   hideModal,
   destroyModal,
   ...ownProps
-}) => (
+}: ModalHelpers) => (
   <ReactModal
     isOpen={isOpen}
     appElement={document.getElementById('root') || undefined}
     className='messageBax'
   >
-    <div className="messageBax-content">
-      <div className='messageBax-body'>
+    <div>
+      <h3>{ownProps.title}</h3>
       <p>{ownProps.text}</p>
+      <div>
+          {
+            ownProps.type === 'confirm'
+              ? (
+              <>
+                <button className='btn btn-outline-success' onClick={() => submit()}>Ok</button>
+                <button className='btn btn-outline-dark' onClick={() => hide()}>Cancel</button>
+              </>
+                )
+              : <button className='btn btn-outline-danger' onClick={() => hide()}>Ok</button>
+          }
       </div>
-      <div className='messageBax-footer'>
-          <button onClick={() => hide()}>Cancel</button>
-          <button onClick={() => submit()}>Ok</button>
-      </div>
-
     </div>
   </ReactModal>
 )
 
 export default sagaModal({
-  // an unique name for the modal
-  name: 'CONFIRM_MODAL'
+  name: 'MESSAGEBOX'
 })(Modal)

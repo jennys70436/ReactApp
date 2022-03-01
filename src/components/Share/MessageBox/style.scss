@@ -1,26 +1,21 @@
 .messageBax{
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  max-width: 500px;
-  height: 100%;
-  overflow: hidden;
-  outline: 0;
-  background-color: white;
+  margin: auto;
+  position: relative;
+  top: 40px;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  width: 80%;
+  max-width: 400px;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.messageBax-content {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    width: 100%;
-    pointer-events: auto;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 0.3rem;
-    outline: 0;
-  }
+.btn {
+  width: 75px;
+  margin-right: 10px;
+  border-radius: 3px;
+}
