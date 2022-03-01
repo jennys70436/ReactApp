@@ -2,6 +2,11 @@ import React from 'react'
 import { sagaModal, ModalHelpers } from 'redux-saga-modal'
 import ReactModal from 'react-modal'
 
+/**
+ * Modal
+ * type: confirm(確認視窗) / msg(提示訊息)
+ */
+
 const Modal = ({
   modal: { name },
   isOpen,

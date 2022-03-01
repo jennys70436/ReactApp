@@ -56,25 +56,27 @@ const RoomDetail = (props: RoomDetailProps) => {
               <h3 className='heading mb-4'>Booking Time</h3>
                 <div className='fields'>
                   <div className='form-group'>
+                    <span>入住日</span>
                     <DatePicker
                       selected={startDate}
                       onChange={(date:Date) => setDate('startDate', date)}
-                      className='form-control checkin_date'
+                      className='form-control date'
                       dateFormat="yyyy/MM/dd"
                       placeholderText='Check In Date'
                     />
                   </div>
                   <div className='form-group'>
+                    <span>退房日</span>
                     <DatePicker
                       selected={endDate}
                       onChange={(date:Date) => setDate('endDate', date)}
-                      className='form-control checkout_date'
+                      className='form-control date'
                       dateFormat="yyyy/MM/dd"
                       placeholderText='Check Out Date'
                     />
                   </div>
                   <div className='form-group'>
-                    <button className='btn btn-primary py-3 px-5' onClick={() => book()}>Book</button>
+                    <button className='btn btn-primary py-3 px-5' onClick={() => book(roomData.name)}>Book</button>
                   </div>
                 </div>
             </div>
