@@ -25,3 +25,49 @@ export function setRooms (rooms: Room[]) : SetRoomsAction {
     payload: { rooms }
   }
 }
+
+interface SetCategoryAction extends Action<string>{
+  payload: { category: string }
+}
+
+/**
+ *  設定 顯示分類
+ * @param rooms 房型清單
+ */
+export function setCategory (category: string) : SetCategoryAction {
+  return {
+    type: ACTION_TYPES.SET_CATEGORY,
+    payload: { category }
+  }
+}
+
+interface SetDateAction extends Action<string>{
+  payload: { type: string, date: Date }
+}
+
+/**
+ *  設定 預定日期
+ * @param type startDate/endDate
+ * @param date 選取日期
+ */
+export function setDate (type: string, date: Date) : SetDateAction {
+  return {
+    type: ACTION_TYPES.SET_DATE,
+    payload: { type, date }
+  }
+}
+
+export interface BookAction extends Action<string>{
+  payload: { name: string }
+}
+
+/**
+ * 預定 房型
+ * @param name 房型名稱
+ */
+export function book (name: string): BookAction {
+  return {
+    type: ACTION_TYPES.BOOK,
+    payload: { name }
+  }
+}

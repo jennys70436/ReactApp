@@ -1,5 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useRoomDetail } from '../hook/roomDetail'
+import RoomCard from './RoomCard'
+import _ from 'lodash'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 interface RoomDetailProps {
   match: { params: { id: string } }
@@ -7,7 +11,7 @@ interface RoomDetailProps {
 
 const RoomDetail = (props: RoomDetailProps) => {
   const { id } = props.match.params
-  const { roomData } = useRoomDetail(id)
+  const { startDate, endDate, roomData, sameSizeRooms, setDate, book } = useRoomDetail(id)
   return (
     <section className='ftco-section'>
       <div className='container'>
@@ -40,73 +44,74 @@ const RoomDetail = (props: RoomDetailProps) => {
                   <div className='col-md-12 room-single mb-5 mt-5'>
                       <h4 className='mb-4'>Available Room</h4>
                       <div className='row'>
-                          <div className='col-sm col-md-6'>
-                                    <div className='room'>
-                                        <a href='rooms.html' className='img img-2 d-flex justify-content-center align-items-center'>
-                                            <div className='icon d-flex justify-content-center align-items-center'>
-                                                <span className='icon-search2'></span>
-                                            </div>
-                                        </a>
-                                        <div className='text p-3 text-center'>
-                                            <h3 className='mb-3'><a href='rooms.html'>Suite Room</a></h3>
-                                            <p><span className='price mr-2'>$120.00</span> <span className='per'>per night</span></p>
-                                            <hr />
-                                            <p className='pt-1'><a href='room-single.html' className='btn-custom'>View Room Details <span className='icon-long-arrow-right'></span></a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='col-sm col-md-6'>
-                                    <div className='room'>
-                                        <a href='rooms.html' className='img img-2 d-flex justify-content-center align-items-center'>
-                                            <div className='icon d-flex justify-content-center align-items-center'>
-                                                <span className='icon-search2'></span>
-                                            </div>
-                                        </a>
-                                        <div className='text p-3 text-center'>
-                                            <h3 className='mb-3'><a href='rooms.html'>Family Room</a></h3>
-                                            <p><span className='price mr-2'>$20.00</span> <span className='per'>per night</span></p>
-                                            <hr />
-                                            <p className='pt-1'><a href='room-single.html' className='btn-custom'>View Room Details <span className='icon-long-arrow-right'></span></a></p>
-                                        </div>
-                                    </div>
-                                </div>
+                      {
+                        _.map(sameSizeRooms, room => <RoomCard data={room} key={room.id} />)
+                      }
                       </div>
                   </div>
               </div>
           </div>
           <div className='col-lg-4 sidebar'>
+          <div className='sidebar-wrap bg-light'>
+              <h3 className='heading mb-4'>Booking Time</h3>
+                <div className='fields'>
+                  <div className='form-group'>
+                    <span>入住日</span>
+                    <DatePicker
+                      selected={startDate}
+                      onChange={(date:Date) => setDate('startDate', date)}
+                      className='form-control date'
+                      dateFormat="yyyy/MM/dd"
+                      placeholderText='Check In Date'
+                    />
+                  </div>
+                  <div className='form-group'>
+                    <span>退房日</span>
+                    <DatePicker
+                      selected={endDate}
+                      onChange={(date:Date) => setDate('endDate', date)}
+                      className='form-control date'
+                      dateFormat="yyyy/MM/dd"
+                      placeholderText='Check Out Date'
+                    />
+                  </div>
+                  <div className='form-group'>
+                    <button className='btn btn-primary py-3 px-5' onClick={() => book(roomData.name)}>Book</button>
+                  </div>
+                </div>
+            </div>
             <div className='sidebar-box'>
               <h3>Recent Blog</h3>
               <div className='block-21 mb-4 d-flex'>
                 <a className='blog-img mr-4 blog-img1'></a>
                 <div className='text'>
-                  <h3 className='heading'><a href='#'>Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <h3 className='heading'><a>Even the all-powerful Pointing has no control about the blind texts</a></h3>
                   <div className='meta'>
-                    <div><a href='#'><span className='icon-calendar'></span> July 12, 2018</a></div>
-                    <div><a href='#'><span className='icon-person'></span> Admin</a></div>
-                    <div><a href='#'><span className='icon-chat'></span> 19</a></div>
+                    <div><a><span className='icon-calendar'></span> July 12, 2018</a></div>
+                    <div><a><span className='icon-person'></span> Admin</a></div>
+                    <div><a><span className='icon-chat'></span> 19</a></div>
                   </div>
                 </div>
               </div>
               <div className='block-21 mb-4 d-flex'>
                 <a className='blog-img mr-4 blog-img2'></a>
                 <div className='text'>
-                  <h3 className='heading'><a href='#'>Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <h3 className='heading'><a>Even the all-powerful Pointing has no control about the blind texts</a></h3>
                   <div className='meta'>
-                    <div><a href='#'><span className='icon-calendar'></span> July 12, 2018</a></div>
-                    <div><a href='#'><span className='icon-person'></span> Admin</a></div>
-                    <div><a href='#'><span className='icon-chat'></span> 19</a></div>
+                    <div><a><span className='icon-calendar'></span> July 12, 2018</a></div>
+                    <div><a><span className='icon-person'></span> Admin</a></div>
+                    <div><a><span className='icon-chat'></span> 19</a></div>
                   </div>
                 </div>
               </div>
               <div className='block-21 mb-4 d-flex'>
                 <a className='blog-img mr-4 blog-img3'></a>
                 <div className='text'>
-                  <h3 className='heading'><a href='#'>Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <h3 className='heading'><a>Even the all-powerful Pointing has no control about the blind texts</a></h3>
                   <div className='meta'>
-                    <div><a href='#'><span className='icon-calendar'></span> July 12, 2018</a></div>
-                    <div><a href='#'><span className='icon-person'></span> Admin</a></div>
-                    <div><a href='#'><span className='icon-chat'></span> 19</a></div>
+                    <div><a><span className='icon-calendar'></span> July 12, 2018</a></div>
+                    <div><a><span className='icon-person'></span> Admin</a></div>
+                    <div><a><span className='icon-chat'></span> 19</a></div>
                   </div>
                 </div>
               </div>
@@ -114,14 +119,14 @@ const RoomDetail = (props: RoomDetailProps) => {
             <div className='sidebar-box'>
               <h3>Tag Cloud</h3>
               <div className='tagcloud'>
-                <a href='#' className='tag-cloud-link'>dish</a>
-                <a href='#' className='tag-cloud-link'>menu</a>
-                <a href='#' className='tag-cloud-link'>food</a>
-                <a href='#' className='tag-cloud-link'>sweet</a>
-                <a href='#' className='tag-cloud-link'>tasty</a>
-                <a href='#' className='tag-cloud-link'>delicious</a>
-                <a href='#' className='tag-cloud-link'>desserts</a>
-                <a href='#' className='tag-cloud-link'>drinks</a>
+                <a className='tag-cloud-link'>dish</a>
+                <a className='tag-cloud-link'>menu</a>
+                <a className='tag-cloud-link'>food</a>
+                <a className='tag-cloud-link'>sweet</a>
+                <a className='tag-cloud-link'>tasty</a>
+                <a className='tag-cloud-link'>delicious</a>
+                <a className='tag-cloud-link'>desserts</a>
+                <a className='tag-cloud-link'>drinks</a>
               </div>
             </div>
             <div className='sidebar-box'>

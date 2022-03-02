@@ -4,7 +4,7 @@ import RoomCard from './RoomCard'
 import _ from 'lodash'
 
 const RoomList = () => {
-  const { roomList } = useRoomList()
+  const { roomList, filterRoomList, setCategory } = useRoomList()
   return (
     <section className='ftco-section bg-light'>
       <div className='container'>
@@ -12,86 +12,18 @@ const RoomList = () => {
           <div className='col-lg-9'>
             <div className='row'>
               {
-                _.map(roomList, room => <RoomCard data={room} key={room.id} />)
+                _.map(filterRoomList, room => <RoomCard data={room} key={room.id} />)
               }
             </div>
           </div>
           <div className='col-lg-3 sidebar'>
             <div className='sidebar-wrap bg-light'>
-              <h3 className='heading mb-4'>Advanced Search</h3>
-              <form action='#'>
-                <div className='fields'>
-                  <div className='form-group'>
-                    <input type='text' id='checkin_date' className='form-control checkin_date' placeholder='Check In Date' />
-                  </div>
-                  <div className='form-group'>
-                    <input type='text' id='checkin_date' className='form-control checkout_date' placeholder='Check Out Date' />
-                  </div>
-                  <div className='form-group'>
-                    <div className='select-wrap one-third'>
-                      <div className='icon'><span className='ion-ios-arrow-down'></span></div>
-                      <select name='' id='' className='form-control'>
-                        <option value=''>Room Type</option>
-                        <option value=''>Suite</option>
-                        <option value=''>Family Room</option>
-                        <option value=''>Deluxe Room</option>
-                        <option value=''>Classic Room</option>
-                        <option value=''>Superior Room</option>
-                        <option value=''>Luxury Room</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div className='form-group'>
-                    <div className='select-wrap one-third'>
-                      <div className='icon'><span className='ion-ios-arrow-down'></span></div>
-                      <select name='' id='' className='form-control'>
-                        <option value=''>0 Adult</option>
-                        <option value=''>1 Adult</option>
-                        <option value=''>2 Adult</option>
-                        <option value=''>3 Adult</option>
-                        <option value=''>4 Adult</option>
-                        <option value=''>5 Adult</option>
-                        <option value=''>6 Adult</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div className='form-group'>
-                    <div className='select-wrap one-third'>
-                      <div className='icon'><span className='ion-ios-arrow-down'></span></div>
-                      <select name='' id='' className='form-control'>
-                        <option value=''>0 Children</option>
-                        <option value=''>1 Children</option>
-                        <option value=''>2 Children</option>
-                        <option value=''>3 Children</option>
-                        <option value=''>4 Children</option>
-                        <option value=''>5 Children</option>
-                        <option value=''>6 Children</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div className='form-group'>
-                    <div className='range-slider'>
-                      <span>
-                        <input type='number' min='0' max='120000' />  -
-                        <input type='number' min='0' max='120000' />
-                      </span>
-                      <input min='0' max='120000' step='500' type='range' />
-                      <input min='0' max='120000' step='500' type='range' />
-                    </div>
-                  </div>
-                </div>
-                <div className='form-group'>
-                  <input type='submit' value='Search' className='btn btn-primary py-3 px-5' />
-                </div>
-              </form>
-            </div>
-            <div className='sidebar-wrap bg-light'>
               <div className='categories'>
                 <h3>Categories</h3>
-                <li>所有房型 <span>(12)</span></li>
-                <li>雙人房 <span>(22)</span></li>
-                <li>四人房 <span>(37)</span></li>
-                <li>六人房 <span>(42)</span></li>
+                <li onClick={() => setCategory('all')}>所有房型 <span>({roomList.length})</span></li>
+                <li onClick={() => setCategory('2')}>雙人房 <span>({_.filter(roomList, { size: '2' }).length})</span></li>
+                <li onClick={() => setCategory('4')}>四人房 <span>({_.filter(roomList, { size: '4' }).length})</span></li>
+                <li onClick={() => setCategory('6')}>六人房 <span>({_.filter(roomList, { size: '6' }).length})</span></li>
               </div>
             </div>
           </div>

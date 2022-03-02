@@ -1,0 +1,21 @@
+.messageBax{
+  margin: auto;
+  position: relative;
+  top: 40px;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  width: 80%;
+  max-width: 400px;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn {
+  width: 75px;
+  margin-right: 10px;
+  border-radius: 3px;
+}
